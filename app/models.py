@@ -46,12 +46,7 @@ class Advert(Base):
 
 def create_users():
     users = [
-        User(name='test', surname='test'),
-        User(name='test', surname='test'),
-        User(name='test', surname='test'),
-        User(name='test', surname='test'),
-        User(name='test', surname='test'),
-        User(name='test', surname='test'),
+        User(name='test', surname='test') for _ in range(6)
     ]
     session = create_session()
 
@@ -72,3 +67,8 @@ def create_adverts():
     ]
     session.add_all(adverts)
     session.commit()
+
+
+if __name__ == '__main__':
+    create_users()
+    create_adverts()
